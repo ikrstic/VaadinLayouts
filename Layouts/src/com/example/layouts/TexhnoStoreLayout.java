@@ -2,9 +2,12 @@ package com.example.layouts;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.vaadin.server.Resource;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalSplitPanel;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.RichTextArea;
@@ -24,9 +27,15 @@ public class TexhnoStoreLayout extends HorizontalSplitPanel {
 		setSizeFull();
 	}
 
-	private Tree createPaneLeft() {
+	private Panel createPaneLeft() {
+		// Serve the image from the theme
+		Resource res = new ThemeResource("img/texhnostore150.png");
+		// Display the image without caption
+		Image logo = new Image(null, res);
 		Panel logopanel = new Panel();
 		logopanel.setHeight(150, Unit.PIXELS);
+		logopanel.setContent(logo);
+		
 		Tree menu = new Tree();
 		for (int i = 1; i < 6; i++) {
 			String item = "item" + i;
@@ -36,7 +45,9 @@ public class TexhnoStoreLayout extends HorizontalSplitPanel {
 			menu.setParent(childItem, item);
 			menu.setChildrenAllowed(childItem, false);
 		}
-		return menu;
+		logopanel.setContent(menu);
+		return logopanel;
+		//return menu;
 	}
 
 	private Component createContentPanel() {
