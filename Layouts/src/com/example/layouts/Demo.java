@@ -2,7 +2,8 @@ package com.example.layouts;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.example.layouts.AdjustableLayout;
+//import com.example.layouts.AdjustableLayout;
+import com.example.layouts.TexhnoStoreLayout;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
@@ -22,6 +23,7 @@ public class Demo extends UI {
 	
 	@Override
 	public void init(VaadinRequest request) {
-		setContent(new AdjustableLayout());
+		//setContent(new AdjustableLayout());
+		setContent(new TexhnoStoreLayout());
 	}
 }
